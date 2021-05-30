@@ -12,7 +12,7 @@ const ItemSearch = ({ keyword, onPress, onRemove }) => {
         <Text style={styles.txtKeyword}>{keyword}</Text>
       </TouchableOpacity>
       <TouchableOpacity onPress={onRemoveKeyword} style={styles.btnRemove}>
-        <IonIcons name="close-outline" size={35} color="#777D71" />
+        <IonIcons name="close-outline" size={35} color="#777D71" style={styles.iconClose} />
       </TouchableOpacity>
     </View>
   )
@@ -46,6 +46,7 @@ const styles = StyleSheet.create({
   btnRemove: {
     width: 50,
     justifyContent: 'center',
-    alignItems: 'flex-end',
-  }
+    alignItems: 'flex-end'
+  },
+  iconClose: { marginRight: -9 }
 })

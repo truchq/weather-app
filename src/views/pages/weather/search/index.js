@@ -45,7 +45,9 @@ export default ({ keywords, loading, networkConnected }) => {
   // debounce prevent request to the server
   const debouncedChangeKeyword = useDebounce(keyword, 1000);
   useEffect(() => {
-    hideHistory()
+    if(keyword){
+      hideHistory()
+    }
     onSearch()
   }, [debouncedChangeKeyword])
   useEffect(() => {

@@ -1,5 +1,5 @@
-import React, { useState, useCallback, useEffect } from 'react'
-import { StyleSheet, View, FlatList, Text } from 'react-native'
+import React, { useCallback } from 'react'
+import { View, FlatList, SafeAreaView, StyleSheet } from 'react-native'
 import { useSelector, shallowEqual } from 'react-redux'
 import Search from './search'
 import Item from './Item'
@@ -25,7 +25,7 @@ export default () => {
   const keyExtractor = useCallback((item) => `weather-key-${item.dt}`, []);
 
   return (
-    <>
+    <SafeAreaView style={styles.container}>
       {!networkConnected && (<WarningNetwork />)}
       <View style={styles.container}>
         <Search keywords={keywords} loading={loading} networkConnected={networkConnected} />
@@ -33,11 +33,11 @@ export default () => {
           data={weathers}
           renderItem={renderItem}
           keyExtractor={keyExtractor}
-          ListEmptyComponent={<EmptyComponent/>}
-          ListHeaderComponent={<HeaderComponent weathers={weathers} keywordCurrent={keywordCurrent}/>}
+          ListEmptyComponent={<EmptyComponent />}
+          ListHeaderComponent={<HeaderComponent weathers={weathers} keywordCurrent={keywordCurrent} />}
         />
       </View>
-    </>
+    </SafeAreaView>
 
   )
 }
